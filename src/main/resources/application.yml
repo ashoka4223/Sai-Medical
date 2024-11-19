@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: Sai-Samartha
+
+server:
+  port: 9090
