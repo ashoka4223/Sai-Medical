@@ -1,15 +1,16 @@
 package com.sinfolix.Sai_Samartha.Entities;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 
-public class OrderEntity {
+@Entity
+@Data
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String customerName;
     private String customerEmail;
     private String customerAddress;
@@ -18,4 +19,16 @@ public class OrderEntity {
     private int status;
     private boolean isPrescriptionBased;
     private boolean reviewed;
+
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "user_id")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

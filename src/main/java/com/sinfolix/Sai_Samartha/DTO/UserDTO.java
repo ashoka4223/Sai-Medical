@@ -7,26 +7,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class OrderDTO {
-
+@AllArgsConstructor
+public class UserDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String customerName;
-    private String customerEmail;
-    private String customerAddress;
-    private LocalDate orderDate;
-    private LocalDate modified_time;
-    private int status;
-    private boolean isPrescriptionBased;
-    private boolean reviewed;
 
-    private int userId;
+    private String firstName;
+    private String lastName;
+    private String username;
+    private String email;
+    private String password;
+    private List<String> roles = new ArrayList<>();
+
+    private List<Integer> orderIds = new ArrayList<>();
+
+
 }
